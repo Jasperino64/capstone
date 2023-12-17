@@ -1,20 +1,19 @@
 import React from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Nav from './components/Nav';
 import Specials from './components/Specials';
 import Testimonials from './components/Testimonials';
-
+import { useTheme } from './ThemeContext';
+import './styles/main.css';
+import Header from './components/Header';
 
 function MainPage() {
+  const [theme] = useTheme();
   return (
-    <>
-      <Nav />
+    <div className={theme === 'dark' ? 'dark' : ''}>
       <Header />
       <Specials />
       <Testimonials />
-      <Footer />
-    </>
+
+    </div>
   );
 }
 

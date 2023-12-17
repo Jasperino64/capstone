@@ -1,43 +1,59 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import MainPage from './MainPage';
 import BookingPage from './Booking';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ConfirmedBooking from './components/ConfirmedBooking';
 import { ThemeProvider } from './ThemeContext';
+import Layout from './components/Layout';
+import OrderForm from './components/OrderForm';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage />
+    element: (
+      <Layout>
+        <MainPage />
+      </Layout>
+    ),
   },
   {
     path: "/book",
-    element: <BookingPage />
+    element: (
+      <Layout>
+        <BookingPage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/order",
+    element: (
+      <Layout>
+        <OrderForm />
+      </Layout>
+    ),
   },
   {
     path: "/success",
-    element: <ConfirmedBooking />
+    element: (
+      <Layout>
+        <ConfirmedBooking />
+      </Layout>
+    ),
   },
-])
+]);
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        {router}
+      </RouterProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

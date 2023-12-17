@@ -7,7 +7,7 @@ import '../styles/BookingForm.css';
 import PeopleComponent from './PeopleComponent';
 import { BackButton, SmallLogo } from '../lib/svg/FormSVG';
 import ConfirmationDialogue from './ConfirmationDialogue';
-
+import { useTheme } from '../ThemeContext';
 
 function changeDate(date) {
     const options = { weekday: 'short', year: '2-digit', month: '2-digit', day: '2-digit' };
@@ -34,6 +34,22 @@ function DatePicker({ setProvidedDate, setDate }) {
     )
 }
 
+function validateForm(values) {
+    const errors = {};
+    if (values.name.length === 0) {
+        errors.name = "Required Field."
+    }
+    if (values.email.length === 0) {
+        errors.email = 'Required Field.';
+    } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+    ) {
+        errors.email = 'Invalid email address';
+    }
+    return errors;
+
+}
+
 
 export default function BookingForm({ submitFormData, availableTimes, setDates }) {
     const [peopleAmount, setPeopleAmount] = useState(0);
@@ -42,29 +58,18 @@ export default function BookingForm({ submitFormData, availableTimes, setDates }
     const [confirmation, setConfirmation] = useState(false);
     const [time, setTime] = useState(availableTimes[0]);
     const [date, setDate] = useState(new Date());
+    const [theme] = useTheme();
 
     const navigate = useNavigate();
     const setProvidedDate = (date) => {
         setDates({ type: "GET DATE", data: date })
     }
-
+   
     return (
+        <div className={theme === 'dark' ? 'dark' : ''}>
         <Formik
             initialValues={{ email: '', name: '' }}
-            validate={(values) => {
-                const errors = {};
-                if (values.name.length === 0) {
-                    errors.name = "Required Field."
-                }
-                if (values.email.length === 0) {
-                    errors.email = 'Required Field.';
-                } else if (
-                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                    errors.email = 'Invalid email address';
-                }
-                return errors;
-            }}
+            validate={validateForm}
             onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                     const allValues = { ...values, time, date, checkmark, occasion, peopleAmount }
@@ -131,5 +136,6 @@ export default function BookingForm({ submitFormData, availableTimes, setDates }
                 </Form>
             )}
         </Formik>
+        </div>
     )
 }

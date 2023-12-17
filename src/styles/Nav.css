@@ -2,6 +2,9 @@ nav {
     margin-top: 1rem;
     color: black;
 }
+nav.dark {
+    color: white;
+}
 
 nav ul {
     width: 60%;
@@ -20,6 +23,9 @@ nav li {
     color: black;
 }
 
+.nav-link.dark {
+    color: white;
+}
 
 @media screen and (max-width: 720px) {
     nav ul {

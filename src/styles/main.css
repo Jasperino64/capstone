@@ -99,3 +99,10 @@ select::-ms-expand {
 .booking-wrapper {
   position: relative;
 }
+
+.dark {
+  background-color: #000;
+  /* black background */
+  color: #fff;
+  /* white text */
+}

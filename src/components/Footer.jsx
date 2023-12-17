@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import '../styles/Footer.css';
 import Logo from './Logo';
+import { useTheme } from '../ThemeContext';
 
 export default function Footer() {
     const navigate = useNavigate();
+    const [theme] = useTheme();
     return (
-        <footer>
+        <footer className={theme === 'dark' ? 'dark' : ''}>
             <Logo />
             <li className="paragraph">
                 Little Lemon is a charming restaurant that offers a delightful dining experience in a cozy and intimate setting.

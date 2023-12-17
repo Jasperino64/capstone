@@ -158,3 +158,11 @@ ul>li:first-child {
 .error-text {
     color: red;
 }
+
+.form-container.dark,
+.form-input.dark,
+.form-button.dark,
+.reserve-container.dark {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
+}

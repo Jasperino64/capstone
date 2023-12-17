@@ -1,0 +1,11 @@
+.orderForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh; /* take full viewport height */
+}
+
+.orderForm.dark {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
+}

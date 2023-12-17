@@ -4,7 +4,7 @@ footer {
     margin: auto;
     text-align: justify;
     gap: 3rem;
-    margin-top: 3rem;
+    
     border-top: 1px solid var(--primary-yellow);
     border-radius: 8px;
     box-shadow: var(--primary-green) 0px 5px 15px;
@@ -18,10 +18,15 @@ footer li:last-child>*:not(:last-child) {
     margin-bottom: 1rem;
 }
 
+.dark {
+    background-color: #000; /* black background */
+    color: #fff; /* white text */
+}
+
 @media screen and (max-width: 720px) {
     footer {
         flex-direction: column;
-        padding: 1rem 3rem;
+        padding: 1rem;
         width: 100%;
     }
 

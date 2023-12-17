@@ -2,7 +2,7 @@ import "../../styles/Switch.css";
 import { useTheme } from "../../ThemeContext";
 
 const Switch = () => {
-  const { theme, toggleTheme } = useTheme();
+  const [ theme, toggleTheme ] = useTheme();
   return (
     <label className="switch">
       <input
