@@ -4,12 +4,12 @@ import { CheckmarkChecked, CheckmarkUnchecked, Chevron } from '../lib/svg/FormSV
 import '../styles/AdditionalInformation.css';
 
 
-const occasionDatas  = [
+const occasions  = [
     { id: 0, occasion: 'Casual', key: "new" },
     { id: 1, occasion: 'Formal', key: "key" },
     { id: 2, occasion: 'Party', key: "ree" },
 ]
-const checkmarkDatas = [
+const otherOccasions = [
     [{ id: 0, occasion: 'Smoking' },
     { id: 1, occasion: 'Indoor' },
     { id: 2, occasion: 'Outdoor' }],
@@ -27,7 +27,7 @@ export default function AdditionalInformation({ occasion, setOccasion, checkmark
                 {/* <AdditionalInformation /> */}
                 <div style={{ justifyContent: 'space-around' }} className="people-component">
                     {
-                        occasionDatas.map((occasions) => (
+                        occasions.map((occasions) => (
                             <button type="button"
                             aria-label="pick occasion"
                                 key={occasions.key}
@@ -39,7 +39,7 @@ export default function AdditionalInformation({ occasion, setOccasion, checkmark
                     }
                 </div>
                 {
-                    checkmarkDatas.map((data) => (
+                    otherOccasions.map((data) => (
                         <div className="checkmark-container" key={`${data.length}key`}>
                             {
                                 data.map((occasions) => {

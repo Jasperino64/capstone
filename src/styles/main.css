@@ -75,20 +75,13 @@ body {
   border: 0;
 }
 
-.container { 
+.container {
   padding: 20px;
 }
 
 
 a:visited {
   color: inherit;
-}
-
-select {
-  /* for Firefox */
-  -moz-appearance: none;
-  /* for Chrome */
-  -webkit-appearance: none;
 }
 
 /* For IE10 */
