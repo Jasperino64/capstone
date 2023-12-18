@@ -21,6 +21,7 @@ function DatePicker({ setProvidedDate, setDate }) {
         <input type="date"
             className="date paragraph"
             data-date={changeDate(now)}
+            defaultValue={now.toISOString().split("T")[0]} // Set default value to today's date
             onChange={(e) => {
                 setDate(new Date(e.target.value))
                 const currDate = new Date(e.target.value);
@@ -51,7 +52,7 @@ function validateForm(values) {
 }
 
 
-export default function BookingForm({ submitFormData, availableTimes, setDates }) {
+export default function BookingForm({ submitFormData, availableTimes, onDateChange }) {
     const [peopleAmount, setPeopleAmount] = useState(0);
     const [occasion, setOccasion] = useState(0);
     const [checkmark, setCheckmark] = useState([1])
@@ -62,9 +63,9 @@ export default function BookingForm({ submitFormData, availableTimes, setDates }
 
     const navigate = useNavigate();
     const setProvidedDate = (date) => {
-        setDates({ type: "GET DATE", data: date })
+        onDateChange(date)
     }
-   
+
     return (
         <div className={theme === 'dark' ? 'dark' : ''}>
         <Formik

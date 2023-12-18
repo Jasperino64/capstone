@@ -12,7 +12,6 @@ function MainPage() {
       <Header />
       <Specials />
       <Testimonials />
-
     </div>
   );
 }

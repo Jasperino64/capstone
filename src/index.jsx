@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MainPage from './MainPage';
-import BookingPage from './Booking';
+import BookingPage from './components/Booking';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ConfirmedBooking from './components/ConfirmedBooking';
