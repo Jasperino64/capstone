@@ -5,7 +5,7 @@ export default function ConfirmedBooking() {
 
     return (
         <section
-            style={{ textAlign: 'center', width: 'max-content', margin: 'auto', border: "1px solid var(--primary-green)", height: "100vh" }}>
+            style={{ textAlign: 'center', width: 'max-content', margin: 'auto', height: "100vh" }}>
             <h1 style={{ marginBottom: '8px', color: 'var(--primary-green)' }} className="section-title">We got your reservation.</h1>
             <p style={{ width: '260px', margin: 'auto' }} className="paragraph">Please check your email for booking details.
             </p>
