@@ -1,4 +1,3 @@
-import assert from 'assert';
 export function seededRandom(seed) {
     var m = 2 ** 35 - 31;
     var a = 185852;
@@ -23,7 +22,7 @@ export function fetchAPI(date) {
             result.push(hour + ':30 ' + period);
         }
     }
-    assert(result.length > 0);
+
     return result;
 };
 

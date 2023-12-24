@@ -47,6 +47,7 @@ function validateForm(values) {
     ) {
         errors.email = 'Invalid email address';
     }
+    console.log(errors)
     return errors;
 
 }
